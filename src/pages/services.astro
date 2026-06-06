@@ -1,0 +1,52 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PrimaryButton from '@components/PrimaryButton.astro';
+import SectionHeading from '@components/SectionHeading.astro';
+import { services } from '@data/services';
+---
+
+<BaseLayout title="服务方案" description="美团代运营、小红书本地运营、朋友圈/视频号内容策划、GEO本地搜索优化和医疗本地推广。">
+  <section class="bg-cloud section-pad">
+    <div class="container-narrow max-w-4xl">
+      <p class="eyebrow">服务方案</p>
+      <h1 class="mt-4 text-4xl font-bold tracking-normal text-ink sm:text-5xl">把平台动作变成门店能执行的获客方案</h1>
+      <p class="mt-6 text-lg leading-8 text-slate-600">
+        每个服务都从诊断开始，先看门店当前线上页面、内容和搜索入口，再决定先改什么、后改什么。
+      </p>
+      <div class="mt-8">
+        <PrimaryButton href="/contact">添加微信咨询</PrimaryButton>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container-narrow">
+      <SectionHeading title="五类核心服务" description="可以单项诊断，也可以组合成月度基础代运营和专项优化。" />
+      <div class="space-y-5">
+        {
+          services.map((service) => (
+            <article class="rounded-lg border border-line bg-white p-5 shadow-sm sm:p-7">
+              <div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+                <div>
+                  <h2 class="text-2xl font-bold text-ink">{service.title}</h2>
+                  <p class="mt-4 text-sm leading-7 text-slate-600">{service.summary}</p>
+                  <p class="mt-5 rounded-md bg-cloud p-4 text-sm leading-6 text-slate-600">{service.fit}</p>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold text-pine">包含动作</p>
+                  <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+                    {
+                      service.points.map((point) => (
+                        <li class="rounded-md border border-line px-4 py-3 text-sm font-medium text-ink">{point}</li>
+                      ))
+                    }
+                  </ul>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

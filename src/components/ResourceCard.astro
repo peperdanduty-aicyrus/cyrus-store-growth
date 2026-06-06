@@ -1,0 +1,21 @@
+---
+import type { Resource } from '@data/resources';
+import PrimaryButton from './PrimaryButton.astro';
+
+interface Props {
+  resource: Resource;
+}
+
+const { resource } = Astro.props;
+---
+
+<article class="card flex h-full flex-col">
+  <h3 class="text-lg font-bold text-ink">{resource.title}</h3>
+  <div class="mt-4 space-y-4 text-sm leading-6">
+    <p><span class="font-semibold text-ink">适合人群：</span>{resource.audience}</p>
+    <p><span class="font-semibold text-ink">能解决的问题：</span>{resource.problem}</p>
+  </div>
+  <div class="mt-6">
+    <PrimaryButton href="/contact" variant="secondary">添加微信领取</PrimaryButton>
+  </div>
+</article>

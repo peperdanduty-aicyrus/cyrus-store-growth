@@ -1,0 +1,27 @@
+---
+import { navItems, site } from '@data/site';
+---
+
+<header class="sticky top-0 z-30 border-b border-line bg-white/95 backdrop-blur">
+  <nav class="container-narrow flex min-h-16 items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="主导航">
+    <a href="/" class="text-base font-bold text-ink" aria-label="返回首页">{site.shortName}</a>
+    <div class="hidden items-center gap-1 lg:flex">
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class="rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-cloud hover:text-ink"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </div>
+    <a
+      href="/contact"
+      class="inline-flex min-h-10 items-center rounded-md bg-pine px-4 py-2 text-sm font-semibold text-white hover:bg-ink"
+    >
+      添加微信咨询
+    </a>
+  </nav>
+</header>

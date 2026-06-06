@@ -1,0 +1,37 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import CaseCard from '@components/CaseCard.astro';
+import PrimaryButton from '@components/PrimaryButton.astro';
+import SectionHeading from '@components/SectionHeading.astro';
+import { cases } from '@data/cases';
+---
+
+<BaseLayout title="案例复盘" description="本地门店线上运营案例结构，包含行业、问题、解决方案和目标。">
+  <section class="bg-cloud section-pad">
+    <div class="container-narrow max-w-4xl">
+      <p class="eyebrow">案例复盘</p>
+      <h1 class="mt-4 text-4xl font-bold tracking-normal text-ink sm:text-5xl">先看问题，再看怎么拆解</h1>
+      <p class="mt-6 text-lg leading-8 text-slate-600">
+        以下先使用模拟数据和匿名表达，重点展示诊断结构。后续可以替换成真实打码案例。
+      </p>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container-narrow">
+      <SectionHeading title="案例卡片" description="每个案例都避免夸张承诺，只表达问题、方案和优化目标。" />
+      <div class="grid gap-5 md:grid-cols-2">
+        {cases.map((item) => <CaseCard item={item} />)}
+      </div>
+      <div class="mt-10 rounded-lg bg-cloud p-6 text-center">
+        <h2 class="text-xl font-bold text-ink">想知道你的门店线上页面哪里需要先改？</h2>
+        <p class="mx-auto mt-3 max-w-2xl text-sm leading-7 text-slate-600">
+          可以发送门店名称、城市、平台链接和当前诉求，先做初步诊断。
+        </p>
+        <div class="mt-6">
+          <PrimaryButton href="/contact">联系合作</PrimaryButton>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

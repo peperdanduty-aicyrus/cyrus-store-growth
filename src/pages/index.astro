@@ -1,0 +1,140 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PrimaryButton from '@components/PrimaryButton.astro';
+import SectionHeading from '@components/SectionHeading.astro';
+import ServiceCard from '@components/ServiceCard.astro';
+import CaseCard from '@components/CaseCard.astro';
+import ResourceCard from '@components/ResourceCard.astro';
+import { site, merchantTypes } from '@data/site';
+import { services } from '@data/services';
+import { cases } from '@data/cases';
+import { resources } from '@data/resources';
+import { painPoints, processSteps } from '@data/home';
+
+const featuredCases = cases.slice(0, 4);
+const featuredResources = resources.slice(0, 2);
+---
+
+<BaseLayout title="本地门店线上运营方案库" description={site.tagline}>
+  <section class="bg-cloud section-pad">
+    <div class="container-narrow grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+      <div>
+        <p class="eyebrow">本地门店线上运营方案库</p>
+        <h1 class="mt-4 text-4xl font-bold tracking-normal text-ink sm:text-5xl lg:text-6xl">
+          {site.tagline}
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-slate-600">{site.description}</p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <PrimaryButton href="/contact">联系合作 / 添加微信咨询</PrimaryButton>
+          <PrimaryButton href="/services" variant="secondary">查看服务方案</PrimaryButton>
+        </div>
+      </div>
+      <aside class="rounded-lg border border-line bg-white p-5 shadow-soft">
+        <p class="text-sm font-semibold text-pine">我能帮门店先看清楚这些问题</p>
+        <ul class="mt-5 space-y-3">
+          {
+            painPoints.map((point) => (
+              <li class="flex gap-3 text-sm leading-6 text-slate-700">
+                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-moss"></span>
+                <span>{point}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="mt-6 rounded-md bg-cloud p-4 text-sm leading-6 text-slate-600">
+          不先承诺结果，先把页面、内容、搜索入口和承接流程拆清楚。
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container-narrow">
+      <SectionHeading
+        eyebrow="服务概览"
+        title="围绕门店线上获客链路做诊断、方案和执行"
+        description="服务不是单个平台动作，而是从顾客看到你、理解你、咨询你，到最终到店的完整路径。"
+      />
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {services.map((service) => <ServiceCard service={service} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cloud section-pad">
+    <div class="container-narrow">
+      <SectionHeading
+        eyebrow="适合商家"
+        title="更适合需要解释信任、项目和到店理由的本地门店"
+        description="尤其适合医疗健康、本地生活和教培托管这类不能只靠低价转化的门店。"
+      />
+      <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {
+          merchantTypes.map((type) => (
+            <div class="rounded-lg border border-line bg-white px-4 py-5 text-center text-sm font-semibold text-ink">
+              {type}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container-narrow">
+      <SectionHeading
+        eyebrow="案例入口"
+        title="用真实经营问题的写法呈现案例"
+        description="先放模拟案例结构，后续可以替换成打码后的真实诊断记录。"
+      />
+      <div class="grid gap-5 md:grid-cols-2">
+        {featuredCases.map((item) => <CaseCard item={item} />)}
+      </div>
+      <div class="mt-8 text-center">
+        <PrimaryButton href="/cases" variant="secondary">查看全部案例</PrimaryButton>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cloud section-pad">
+    <div class="container-narrow">
+      <SectionHeading
+        eyebrow="免费资料"
+        title="先领取检查表，再判断是否需要深入诊断"
+        description="资料适合门店老板自己先做一次基础自查。"
+      />
+      <div class="grid gap-5 md:grid-cols-2">
+        {featuredResources.map((resource) => <ResourceCard resource={resource} />)}
+      </div>
+      <div class="mt-8 text-center">
+        <PrimaryButton href="/resources" variant="secondary">查看全部资料</PrimaryButton>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container-narrow rounded-lg bg-ink px-5 py-10 text-white sm:px-8 lg:px-12">
+      <div class="grid gap-8 lg:grid-cols-[1fr_0.8fr]">
+        <div>
+          <p class="text-sm font-semibold text-emerald-200">合作方式</p>
+          <h2 class="mt-3 text-2xl font-bold tracking-normal sm:text-3xl">先诊断，再出方案，再执行优化，再复盘数据</h2>
+          <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-300">
+            如果你已经有美团、小红书、朋友圈或地图搜索入口，可以先把门店信息发来，先看线上链路是否清楚。
+          </p>
+        </div>
+        <ol class="grid gap-3">
+          {
+            processSteps.map((step, index) => (
+              <li class="rounded-md bg-white/10 px-4 py-3 text-sm">
+                {index + 1}. {step}
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+      <div class="mt-8">
+        <PrimaryButton href="/contact">联系合作</PrimaryButton>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

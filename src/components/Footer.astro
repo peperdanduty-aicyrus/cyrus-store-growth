@@ -1,0 +1,26 @@
+---
+import { navItems, site } from '@data/site';
+---
+
+<footer class="border-t border-line bg-ink text-white">
+  <div class="container-narrow px-4 py-10 sm:px-6 lg:px-8">
+    <div class="grid gap-8 md:grid-cols-[1.2fr_1fr]">
+      <div>
+        <p class="text-lg font-bold">{site.name}</p>
+        <p class="mt-3 max-w-2xl text-sm leading-7 text-slate-300">{site.description}</p>
+      </div>
+      <div class="grid grid-cols-2 gap-3 text-sm sm:grid-cols-4 md:grid-cols-2">
+        {
+          navItems.map((item) => (
+            <a href={item.href} class="text-slate-300 hover:text-white">
+              {item.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <div class="mt-8 border-t border-white/10 pt-6 text-xs text-slate-400">
+      <p>© {new Date().getFullYear()} Cyrus吕｜门店增长专家。内容仅为运营诊断和方案建议，不承诺具体排名或咨询数量。</p>
+    </div>
+  </div>
+</footer>
