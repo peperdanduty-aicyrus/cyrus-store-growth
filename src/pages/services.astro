@@ -3,15 +3,16 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import PrimaryButton from '@components/PrimaryButton.astro';
 import SectionHeading from '@components/SectionHeading.astro';
 import { services } from '@data/services';
+import { miniAuditDetails, monthlyOpsDetails, reportDetails } from '@data/home';
 ---
 
-<BaseLayout title="服务方案" description="美团代运营、小红书本地运营、朋友圈/视频号内容策划、GEO本地搜索优化和医疗本地推广。">
+<BaseLayout title="服务方案" description="美团代运营、小红书本地运营、朋友圈内容策划、GEO本地搜索优化和医疗本地推广。">
   <section class="bg-cloud section-pad">
     <div class="container-narrow max-w-4xl">
       <p class="eyebrow">服务方案</p>
       <h1 class="mt-4 text-4xl font-bold tracking-normal text-ink sm:text-5xl">把平台动作变成门店能执行的获客方案</h1>
       <p class="mt-6 text-lg leading-8 text-slate-600">
-        每个服务都从诊断开始，先看门店当前线上页面、内容和搜索入口，再决定先改什么、后改什么。
+        你可以根据门店当前情况，选择9.9元门店基础体检、199元详细诊断报告或月度代运营。先看清线上页面、内容和搜索渠道，再决定优先优化哪些动作。
       </p>
       <div class="mt-8">
         <PrimaryButton href="/contact">添加微信咨询</PrimaryButton>
@@ -21,7 +22,137 @@ import { services } from '@data/services';
 
   <section class="section-pad">
     <div class="container-narrow">
-      <SectionHeading title="五类核心服务" description="可以单项诊断，也可以组合成月度基础代运营和专项优化。" />
+      <SectionHeading
+        eyebrow="基础服务"
+        title="9.9元门店基础体检"
+        description="适合想先了解线上页面基础问题的店主，快速查看主图、团单、评价和竞品差距中的明显漏客点。"
+      />
+      <div class="rounded-lg border border-line bg-white p-5 shadow-sm sm:p-7">
+        <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <h2 class="text-2xl font-bold text-ink">{miniAuditDetails.title}</h2>
+            <p class="mt-4 text-sm leading-7 text-slate-600">{miniAuditDetails.description}</p>
+            <div class="mt-6 grid gap-3">
+              {
+                miniAuditDetails.delivery.map((item) => (
+                  <div class="rounded-md bg-cloud px-4 py-3 text-sm font-semibold text-pine">{item}</div>
+                ))
+              }
+            </div>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-pine">体检会看</p>
+            <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+              {
+                miniAuditDetails.items.map((item) => (
+                  <li class="rounded-md border border-line px-4 py-3 text-sm font-medium text-ink">{item}</li>
+                ))
+              }
+            </ul>
+            <p class="mt-6 text-sm font-semibold text-pine">交付说明</p>
+            <ul class="mt-4 grid gap-3">
+              {
+                miniAuditDetails.boundaries.map((item) => (
+                  <li class="rounded-md bg-cloud px-4 py-3 text-sm text-slate-600">{item}</li>
+                ))
+              }
+            </ul>
+            <div class="mt-6">
+              <PrimaryButton href="/contact">咨询9.9元基础服务</PrimaryButton>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container-narrow">
+      <SectionHeading
+        eyebrow="完整诊断报告"
+        title="一份报告先讲清楚门店线上获客卡在哪里"
+        description="先把主图、页面、团单、评价、竞品和搜索词拆清楚，帮助店主判断优先整改顺序。"
+      />
+      <div class="rounded-lg border border-line bg-white p-5 shadow-sm sm:p-7">
+        <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <h2 class="text-2xl font-bold text-ink">{reportDetails.title}</h2>
+            <p class="mt-4 text-sm leading-7 text-slate-600">{reportDetails.description}</p>
+            <div class="mt-6 grid gap-3">
+              {
+                reportDetails.delivery.map((item) => (
+                  <div class="rounded-md bg-cloud px-4 py-3 text-sm font-semibold text-pine">{item}</div>
+                ))
+              }
+            </div>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-pine">报告包含</p>
+            <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+              {
+                reportDetails.items.map((item) => (
+                  <li class="rounded-md border border-line px-4 py-3 text-sm font-medium text-ink">{item}</li>
+                ))
+              }
+            </ul>
+            <div class="mt-6">
+              <PrimaryButton href="/contact">先发门店信息，免费看3个问题</PrimaryButton>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cloud section-pad">
+    <div class="container-narrow">
+      <SectionHeading
+        eyebrow="月度代运营"
+        title="把诊断报告里的问题，按周变成持续执行动作"
+        description="适合店主没有时间自己盯美团、小红书选题、朋友圈文案和评价关键词维护的门店。"
+      />
+      <div class="rounded-lg border border-line bg-white p-5 shadow-sm sm:p-7">
+        <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <h2 class="text-2xl font-bold text-ink">{monthlyOpsDetails.title}</h2>
+            <p class="mt-4 text-sm leading-7 text-slate-600">{monthlyOpsDetails.description}</p>
+            <div class="mt-6 grid gap-3">
+              {
+                monthlyOpsDetails.cadence.map((item) => (
+                  <div class="rounded-md bg-cloud px-4 py-3 text-sm font-semibold text-pine">{item}</div>
+                ))
+              }
+            </div>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-pine">每月包含</p>
+            <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+              {
+                monthlyOpsDetails.included.map((item) => (
+                  <li class="rounded-md border border-line px-4 py-3 text-sm font-medium text-ink">{item}</li>
+                ))
+              }
+            </ul>
+            <p class="mt-6 text-sm font-semibold text-pine">可沟通加项</p>
+            <ul class="mt-4 grid gap-3">
+              {
+                monthlyOpsDetails.optionalAddOns.map((item) => (
+                  <li class="rounded-md bg-cloud px-4 py-3 text-sm text-slate-600">{item}</li>
+                ))
+              }
+            </ul>
+            <div class="mt-6">
+              <PrimaryButton href="/contact">咨询月度代运营</PrimaryButton>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container-narrow">
+      <SectionHeading title="五类核心服务" description="基础体检和完整诊断报告帮助店主先看清问题，月度代运营负责持续执行，GEO/本地搜索优化作为增值服务。" />
       <div class="space-y-5">
         {
           services.map((service) => (

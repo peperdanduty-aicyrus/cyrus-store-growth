@@ -7,17 +7,17 @@ const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
 
-const categories = ['美团运营', '小红书运营', '医疗获客', '教培招生', '朋友圈文案', '案例复盘'];
+const categories = ['美团运营', '小红书运营', '医疗获客', '朋友圈文案', '案例复盘'];
 const getPostHref = (id: string) => `/blog/${id.replace(/\.md$/, '')}/`;
 ---
 
-<BaseLayout title="运营笔记" description="美团运营、小红书运营、医疗获客、教培招生、朋友圈文案和案例复盘文章。">
+<BaseLayout title="运营笔记" description="美团运营、小红书运营、医疗获客、朋友圈文案和案例复盘文章。">
   <section class="bg-cloud section-pad">
     <div class="container-narrow max-w-4xl">
       <p class="eyebrow">运营笔记</p>
-      <h1 class="mt-4 text-4xl font-bold tracking-normal text-ink sm:text-5xl">写给本地门店老板看的运营文章</h1>
+      <h1 class="mt-4 text-4xl font-bold tracking-normal text-ink sm:text-5xl">写给本地店主看的运营文章</h1>
       <p class="mt-6 text-lg leading-8 text-slate-600">
-        文章围绕美团、小红书、医疗获客、教培招生、朋友圈文案和案例复盘，不写空泛概念。
+        文章围绕中医馆、推拿馆、口腔门诊的美团运营、小红书运营、医疗获客、朋友圈文案和案例复盘，不写空泛概念。
       </p>
     </div>
   </section>

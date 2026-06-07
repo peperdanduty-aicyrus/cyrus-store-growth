@@ -3,14 +3,24 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 import PrimaryButton from '@components/PrimaryButton.astro';
 ---
 
-<BaseLayout title="关于我" description="我是 Cyrus吕，专注本地门店线上运营，帮助门店做好美团、小红书、朋友圈、视频号和本地搜索优化。">
+<BaseLayout title="关于我" description="我是 Cyrus吕，专注本地门店线上运营，帮助门店做好美团、小红书、朋友圈和本地搜索优化。">
   <section class="bg-cloud section-pad">
-    <div class="container-narrow max-w-4xl">
-      <p class="eyebrow">关于我</p>
-      <h1 class="mt-4 text-4xl font-bold tracking-normal text-ink sm:text-5xl">我是 Cyrus吕，专注本地门店线上运营</h1>
-      <p class="mt-6 text-lg leading-8 text-slate-600">
-        主要帮助中医馆、推拿馆、口腔门诊、宠物医院、社区医美、综合门诊、健康驿站和教培托管等本地门店，做好美团、小红书、朋友圈、视频号和本地搜索优化。
-      </p>
+    <div class="container-narrow grid items-center gap-8 lg:grid-cols-[1fr_0.58fr]">
+      <div>
+        <p class="eyebrow">关于我</p>
+        <h1 class="mt-4 text-4xl font-bold tracking-normal text-ink sm:text-5xl">我是 Cyrus吕，专注本地门店线上运营</h1>
+        <p class="mt-6 text-lg leading-8 text-slate-600">
+          我在沈阳，主要帮助中医馆、推拿馆、口腔门诊等健康类本地门店，做好美团、小红书、朋友圈和本地搜索优化，也支持远程服务全国门店。
+        </p>
+      </div>
+      <div class="overflow-hidden rounded-lg border border-line bg-white shadow-soft">
+        <img
+          src="/images/cyrus-profile.jpg"
+          alt="Cyrus吕个人形象照"
+          class="aspect-[4/5] w-full object-cover object-[center_20%]"
+          loading="eager"
+        />
+      </div>
     </div>
   </section>
 
@@ -19,17 +29,17 @@ import PrimaryButton from '@components/PrimaryButton.astro';
       <aside class="rounded-lg bg-ink p-6 text-white">
         <h2 class="text-2xl font-bold">服务风格</h2>
         <ul class="mt-6 space-y-4 text-sm leading-7 text-slate-300">
-          <li>说人话：把平台规则和运营动作翻译成老板能理解的话。</li>
+          <li>说人话：把平台规则和运营动作翻译成店主能理解的话。</li>
           <li>看数据：关注曝光、浏览、咨询、到店和复盘，不凭感觉改页面。</li>
           <li>重落地：先解决最影响转化的问题，不做空泛方案。</li>
-          <li>不做虚假承诺：不保证排名第一，不承诺固定咨询数量。</li>
+          <li>重真实：基于门店现状沟通，避免夸张包装。</li>
         </ul>
       </aside>
       <div class="space-y-5">
         <article class="card">
           <h2 class="text-xl font-bold text-ink">我主要做什么</h2>
           <p class="mt-3 text-sm leading-7 text-slate-600">
-            帮本地门店梳理线上获客链路，包括美团/大众点评页面、团单设计、小红书同城内容、朋友圈/视频号内容、本地搜索和AI搜索可见度资料优化。
+            帮中医馆、推拿馆、口腔门诊梳理线上获客链路，包括美团/大众点评页面、团单设计、小红书同城内容、朋友圈内容、本地搜索和AI搜索可见度资料优化。
           </p>
         </article>
         <article class="card">

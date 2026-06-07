@@ -2,6 +2,13 @@
 
 本项目是一个使用 Astro + Tailwind CSS 构建的静态个人业务官网，定位为“本地门店线上运营方案库”，部署目标为 Cloudflare Pages。
 
+当前业务路径：
+
+- 9.9元门店基础体检：帮助店主先了解线上页面基础问题
+- 199元详细诊断报告：主图、页面、团单、评价、竞品、搜索词和整改顺序
+- 月度代运营：按周执行页面、团单、活动、评价关键词、小红书选题和朋友圈文案
+- GEO/本地搜索优化：作为后续增值项目
+
 ## 本地如何运行
 
 ```bash
@@ -33,7 +40,6 @@ publishDate: 2026-06-06
 - 美团运营
 - 小红书运营
 - 医疗获客
-- 教培招生
 - 朋友圈文案
 - 案例复盘
 
@@ -49,7 +55,7 @@ publishDate: 2026-06-06
 - `solution`：解决方案
 - `result`：结果或目标
 
-建议案例文案使用打码后的真实问题，不写虚假数据，不承诺固定咨询量或排名。
+建议案例文案使用打码后的真实问题，重点写诊断思路、优化动作和阶段目标。
 
 ## 如何部署到 Cloudflare Pages
 
@@ -78,6 +84,7 @@ npm run preview
 - 布局：`src/layouts/BaseLayout.astro`
 - 组件：`src/components`
 - 服务数据：`src/data/services.ts`
+- 合作方式数据：`src/data/home.ts`
 - 案例数据：`src/data/cases.ts`
 - 资料数据：`src/data/resources.ts`
 - 博客文章：`src/content/blog`
