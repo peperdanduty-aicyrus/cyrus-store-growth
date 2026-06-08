@@ -5,6 +5,7 @@ import SectionHeading from '@components/SectionHeading.astro';
 import ServiceCard from '@components/ServiceCard.astro';
 import CaseCard from '@components/CaseCard.astro';
 import ResourceCard from '@components/ResourceCard.astro';
+import OperationsDashboard from '@components/OperationsDashboard.astro';
 import { site, merchantTypes } from '@data/site';
 import { services } from '@data/services';
 import { cases } from '@data/cases';
@@ -26,19 +27,13 @@ const featuredResources = resources.slice(0, 2);
         <p class="mt-6 text-lg leading-8 text-slate-600">{site.description}</p>
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
           <PrimaryButton href="/contact">联系合作 / 添加微信咨询</PrimaryButton>
-          <PrimaryButton href="/services" variant="secondary">查看服务方案</PrimaryButton>
+          <PrimaryButton href="/audit-report" variant="secondary">查看199元报告内容</PrimaryButton>
         </div>
       </div>
-      <aside class="rounded-lg border border-line bg-white p-5 shadow-soft">
-        <div class="overflow-hidden rounded-lg bg-ink">
-          <img
-            src="/images/cyrus-profile.jpg"
-            alt="Cyrus吕个人形象照"
-            class="aspect-[4/3] w-full object-cover object-[center_18%]"
-            loading="eager"
-          />
-        </div>
-        <p class="mt-5 text-sm font-semibold text-pine">我能帮门店先看清楚这些问题</p>
+      <aside>
+        <OperationsDashboard />
+        <div class="mt-4 rounded-lg border border-line bg-white p-5 shadow-soft">
+        <p class="text-sm font-semibold text-pine">我能帮门店先看清楚这些问题</p>
         <ul class="mt-5 space-y-3">
           {
             painPoints.map((point) => (
@@ -51,6 +46,7 @@ const featuredResources = resources.slice(0, 2);
         </ul>
         <div class="mt-6 rounded-md bg-cloud p-4 text-sm leading-6 text-slate-600">
           先把页面、内容、搜索渠道和承接流程拆清楚，帮助店主知道下一步该先改哪里。
+        </div>
         </div>
       </aside>
     </div>

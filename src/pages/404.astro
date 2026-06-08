@@ -1,0 +1,20 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PrimaryButton from '@components/PrimaryButton.astro';
+---
+
+<BaseLayout title="页面未找到" description="页面未找到，可以返回首页查看门店线上运营诊断与代运营服务。">
+  <section class="section-pad">
+    <div class="container-narrow max-w-3xl text-center">
+      <p class="eyebrow">404</p>
+      <h1 class="mt-4 text-4xl font-bold tracking-normal text-ink sm:text-5xl">这个页面暂时不存在</h1>
+      <p class="mt-6 text-lg leading-8 text-slate-600">
+        可以返回首页，或查看199元详细诊断报告内容，了解门店页面、团单、评价和搜索词如何拆解。
+      </p>
+      <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+        <PrimaryButton href="/">返回首页</PrimaryButton>
+        <PrimaryButton href="/audit-report" variant="secondary">查看199元报告</PrimaryButton>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

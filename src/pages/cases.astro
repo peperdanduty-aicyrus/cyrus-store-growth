@@ -6,21 +6,21 @@ import SectionHeading from '@components/SectionHeading.astro';
 import { cases } from '@data/cases';
 ---
 
-<BaseLayout title="案例复盘" description="匿名本地门店线上运营案例，包含行业、问题、解决方案和阶段目标。">
+<BaseLayout title="案例复盘" description="匿名本地门店线上运营案例，包含行业背景、初始问题、交付内容和阶段变化。">
   <section class="bg-cloud section-pad">
     <div class="container-narrow max-w-4xl">
       <p class="eyebrow">案例复盘</p>
-      <h1 class="mt-4 text-4xl font-bold tracking-normal text-ink sm:text-5xl">先看问题，再看怎么拆解</h1>
+      <h1 class="mt-4 text-4xl font-bold tracking-normal text-ink sm:text-5xl">用打码案例看清诊断和执行过程</h1>
       <p class="mt-6 text-lg leading-8 text-slate-600">
-        以下案例均做匿名处理，不展示真实店名和敏感数据。重点展示诊断结构、优化动作和阶段目标。
+        以下案例基于真实服务素材整理，均做匿名处理，不展示真实店名、头像、手机号、地址、订单号和客户隐私。重点展示诊断结构、交付内容和阶段变化。
       </p>
     </div>
   </section>
 
   <section class="section-pad">
     <div class="container-narrow">
-      <SectionHeading title="匿名案例卡片" description="每个案例都避免夸张承诺，只表达问题、方案和优化目标。" />
-      <div class="grid gap-5 md:grid-cols-2">
+      <SectionHeading title="匿名案例拆解" description="每个案例都围绕真实经营问题展开，重点呈现问题、动作、交付和适合参考的门店类型。" />
+      <div class="grid gap-5 lg:grid-cols-2">
         {cases.map((item) => <CaseCard item={item} />)}
       </div>
       <div class="mt-10 rounded-lg bg-cloud p-6 text-center">

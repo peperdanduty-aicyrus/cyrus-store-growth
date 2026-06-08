@@ -1,5 +1,6 @@
 ---
 import type { CaseItem } from '@data/cases';
+import CaseEvidence from './CaseEvidence.astro';
 
 interface Props {
   item: CaseItem;
@@ -13,17 +14,32 @@ const { item } = Astro.props;
   <h3 class="mt-2 text-lg font-bold text-ink">{item.title}</h3>
   <dl class="mt-5 space-y-4 text-sm leading-6">
     <div>
-      <dt class="font-semibold text-ink">问题</dt>
-      <dd class="mt-1 text-slate-600">{item.problem}</dd>
+      <dt class="font-semibold text-ink">行业背景</dt>
+      <dd class="mt-1 text-slate-600">{item.background}</dd>
     </div>
     <div>
-      <dt class="font-semibold text-ink">解决方案</dt>
-      <dd class="mt-1 text-slate-600">{item.solution}</dd>
+      <dt class="font-semibold text-ink">初始问题</dt>
+      <dd class="mt-1 text-slate-600">{item.initialProblem}</dd>
     </div>
     <div>
-      <dt class="font-semibold text-ink">结果/目标</dt>
-      <dd class="mt-1 text-slate-600">{item.result}</dd>
+      <dt class="font-semibold text-ink">做了什么</dt>
+      <dd class="mt-1 text-slate-600">{item.actions}</dd>
+    </div>
+    <div>
+      <dt class="font-semibold text-ink">交付内容</dt>
+      <dd class="mt-1 text-slate-600">{item.deliverables}</dd>
+    </div>
+    <div>
+      <dt class="font-semibold text-ink">阶段变化</dt>
+      <dd class="mt-1 text-slate-600">{item.progress}</dd>
+    </div>
+    <div>
+      <dt class="font-semibold text-ink">适合参考</dt>
+      <dd class="mt-1 text-slate-600">{item.suitableFor}</dd>
     </div>
   </dl>
-  <a href="/contact" class="mt-6 inline-flex text-sm font-semibold text-pine hover:text-ink">查看详情</a>
+  <div class="mt-5 grid gap-3">
+    {item.evidence.map((evidence) => <CaseEvidence evidence={evidence} />)}
+  </div>
+  <a href="/contact" class="mt-6 inline-flex text-sm font-semibold text-pine hover:text-ink">咨询类似诊断</a>
 </article>

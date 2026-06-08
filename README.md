@@ -9,6 +9,11 @@
 - 月度代运营：按周执行页面、团单、活动、评价关键词、小红书选题和朋友圈文案
 - GEO/本地搜索优化：作为后续增值项目
 
+核心转化页：
+
+- `/audit-report`：199元详细诊断报告成交页
+- `/cases`：匿名案例拆解页
+
 ## 本地如何运行
 
 ```bash
@@ -51,11 +56,15 @@ publishDate: 2026-06-06
 
 - `title`：案例名称
 - `industry`：行业
-- `problem`：问题
-- `solution`：解决方案
-- `result`：结果或目标
+- `background`：行业背景
+- `initialProblem`：初始问题
+- `actions`：做了什么
+- `deliverables`：交付内容
+- `progress`：阶段变化
+- `suitableFor`：适合参考的门店
+- `evidence`：匿名证据卡片
 
-建议案例文案使用打码后的真实问题，重点写诊断思路、优化动作和阶段目标。
+建议案例文案使用打码后的真实问题，重点写诊断思路、优化动作和阶段变化。原始 PDF、微信截图和带店名的截图不要直接放到 `public` 目录。
 
 ## 如何部署到 Cloudflare Pages
 
@@ -86,5 +95,7 @@ npm run preview
 - 服务数据：`src/data/services.ts`
 - 合作方式数据：`src/data/home.ts`
 - 案例数据：`src/data/cases.ts`
+- 199元报告数据：`src/data/auditReport.ts`
 - 资料数据：`src/data/resources.ts`
 - 博客文章：`src/content/blog`
+- SEO 文件：`public/robots.txt`、`public/sitemap.xml`

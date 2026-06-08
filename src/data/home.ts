@@ -88,5 +88,5 @@ export const monthlyOpsDetails = {
     '线上接待流程标准化搭建',
     '数据复盘'
   ],
-  optionalAddOns: ['小红书账号发布协助', '朋友圈代发协助', '视频号脚本策划']
+  optionalAddOns: ['小红书账号发布协助', '朋友圈代发协助', '本地搜索资料优化']
 };

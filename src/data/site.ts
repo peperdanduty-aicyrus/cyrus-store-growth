@@ -13,6 +13,7 @@ export const site = {
 
 export const navItems = [
   { label: '首页', href: '/' },
+  { label: '诊断报告', href: '/audit-report' },
   { label: '服务', href: '/services' },
   { label: '案例', href: '/cases' },
   { label: '博客', href: '/blog' },
