@@ -1,0 +1,65 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import DiagnosticFramework from '@components/DiagnosticFramework.astro';
+import CTASection from '@components/CTASection.astro';
+import { acquisitionLinks, diagnosticModel } from '@data/consulting';
+---
+
+<BaseLayout
+  title="诊断方法论"
+  description="Local Growth 5D 诊断模型，从定位、页面、搜索、内容和转化五层拆解本地门店线上获客问题。"
+>
+  <section class="bg-ink section-pad text-white">
+    <div class="container-narrow max-w-4xl">
+      <p class="text-sm font-semibold text-emerald-200">Local Growth Lab</p>
+      <h1 class="mt-4 text-4xl font-bold leading-tight tracking-normal sm:text-5xl">
+        先看清链路，再决定做内容、做平台还是做陪跑
+      </h1>
+      <p class="mt-6 text-lg leading-8 text-slate-300">
+        本地门店线上获客不是单点动作。顾客从看到你、搜索你、相信你、咨询你到最终到店，其中每一步都可能漏客。
+      </p>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container-narrow">
+      <div class="grid gap-4 md:grid-cols-4">
+        {
+          acquisitionLinks.map((link) => (
+            <article class="rounded-lg border border-line bg-white p-5 shadow-sm">
+              <h2 class="text-xl font-bold text-ink">{link.title}</h2>
+              <p class="mt-4 text-sm leading-7 text-slate-600">{link.items.join(' / ')}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <DiagnosticFramework compact />
+
+  <section class="bg-cloud section-pad">
+    <div class="container-narrow">
+      <div class="mx-auto mb-8 max-w-3xl text-center">
+        <p class="eyebrow mb-3">诊断输出</p>
+        <h2 class="text-3xl font-bold text-ink sm:text-4xl">诊断不是写一堆建议，而是排出优先级</h2>
+      </div>
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-5">
+        {
+          diagnosticModel.map((item) => (
+            <div class="rounded-lg border border-line bg-white p-5 shadow-sm">
+              <p class="text-sm font-bold text-pine">{item.code}</p>
+              <h3 class="mt-3 text-lg font-bold text-ink">{item.title}</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600">{item.question}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    title="想用这套模型看一次你的门店？"
+    description="发送门店链接和当前问题，我会先判断问题更可能出在定位、页面、搜索、内容还是转化承接。"
+  />
+</BaseLayout>

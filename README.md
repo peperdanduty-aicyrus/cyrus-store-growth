@@ -1,18 +1,21 @@
 # Cyrus吕｜门店增长专家
 
-本项目是一个使用 Astro + Tailwind CSS 构建的静态个人业务官网，定位为“本地门店线上运营方案库”，部署目标为 Cloudflare Pages。
+这是一个使用 Astro + Tailwind CSS 构建的静态官网，定位为“本地门店线上运营诊断与增长方案”。站点部署目标为 Cloudflare Pages，保持纯静态生成，适合免费托管。
 
-当前业务路径：
+主品牌：`Cyrus吕｜门店增长专家`  
+辅助表达：`Local Growth Lab`
 
-- 9.9元门店基础体检：帮助店主先了解线上页面基础问题
-- 199元详细诊断报告：主图、页面、团单、评价、竞品、搜索词和整改顺序
-- 月度代运营：按周执行页面、团单、活动、评价关键词、小红书选题和朋友圈文案
-- GEO/本地搜索优化：作为后续增值项目
+## 网站结构
 
-核心转化页：
-
-- `/audit-report`：199元详细诊断报告成交页
-- `/cases`：匿名案例拆解页
+- `/`：首页，展示门店线上获客链路、核心判断、5D 诊断模型、服务矩阵、行业场景、案例预览和洞察文章
+- `/services`：服务页，展示从诊断到执行陪跑的服务体系
+- `/methodology`：诊断方法论，展示 Local Growth 5D 诊断模型
+- `/cases`：匿名案例页，展示案例问题拆解、截图和报告预览
+- `/blog`：洞察页，展示给本地门店店主看的咨询笔记
+- `/resources`：资料页，展示线上获客工具包
+- `/about`：关于页，展示工作方式和服务原则
+- `/contact`：联系合作页，展示微信二维码、发送模板、合作流程和 FAQ
+- `/audit-report`：199元深度诊断报告说明页
 
 ## 本地如何运行
 
@@ -23,54 +26,87 @@ npm run dev
 
 默认开发地址通常是 `http://localhost:4321`。
 
-## 如何添加博客文章
+本地构建检查：
 
-博客文章放在 `src/content/blog` 目录下，使用 Markdown 编写。
+```bash
+npm run build
+```
+
+## 如何添加洞察文章
+
+文章放在 `src/content/blog` 目录下，使用 Markdown 编写。
 
 新建一个 `.md` 文件，并添加 frontmatter：
 
 ```md
 ---
 title: "文章标题"
-description: "文章摘要"
-category: "美团运营"
-publishDate: 2026-06-06
+description: "页面 SEO 摘要"
+category: "平台诊断"
+publishDate: 2026-06-08
+readingTime: "6分钟"
+industry: "中医馆、推拿馆、口腔"
+summary: "文章卡片摘要"
 ---
 
 正文内容从这里开始。
 ```
 
-支持的分类包括：
+支持的分类：
 
-- 美团运营
-- 小红书运营
-- 医疗获客
-- 朋友圈文案
+- 平台诊断
+- 美团点评
+- 小红书本地运营
+- 医疗健康内容
+- 教培招生
 - 案例复盘
+- 老板经营认知
 
 ## 如何修改案例
 
 案例数据在 `src/data/cases.ts`。
 
-每个案例包含：
+每个案例重点字段：
 
-- `title`：案例名称
+- `title`：案例名称，建议匿名化
 - `industry`：行业
-- `background`：行业背景
-- `initialProblem`：初始问题
-- `actions`：做了什么
-- `deliverables`：交付内容
-- `progress`：阶段变化
-- `suitableFor`：适合参考的门店
-- `evidence`：匿名证据卡片
+- `storeStage`：门店阶段
+- `coreProblem`：核心问题
+- `framework`：诊断框架
+- `actions`：优化动作
+- `goal`：阶段目标
+- `reusable`：可复用经验
+- `evidence`：截图、报告预览和过程证据
 
-建议案例文案使用打码后的真实问题，重点写诊断思路、优化动作和阶段变化。原始 PDF、微信截图和带店名的截图不要直接放到 `public` 目录。
+案例页支持已打码截图和 WebP 报告页预览。建议只放匿名化素材，避免出现真实店名、手机号、二维码、具体地址、订单号等隐私信息。
+
+## 如何修改服务和页面文案
+
+主要数据文件：
+
+- `src/data/site.ts`：品牌、导航、邮箱、微信二维码、站点描述
+- `src/data/consulting.ts`：首页洞察、5D 诊断模型、服务矩阵、行业场景、FAQ、联系页模板
+- `src/data/auditReport.ts`：199元深度诊断报告页面内容
+- `src/data/resources.ts`：资料页工具包
+- `src/data/cases.ts`：案例页
+
+主要组件：
+
+- `HeroSection`
+- `InsightCards`
+- `DiagnosticFramework`
+- `ServiceMatrix`
+- `IndustryScenarios`
+- `CasePreview`
+- `ResourceCards`
+- `CTASection`
+- `FAQSection`
 
 ## 如何部署到 Cloudflare Pages
 
-1. 将项目推送到 GitHub 或 GitLab。
+1. 将项目推送到 GitHub。
 2. 进入 Cloudflare Pages，新建项目并连接仓库。
-3. 选择框架预设时可选择 Astro，或手动填写构建配置。
+3. 选择 Astro 预设，或手动填写构建配置。
 4. 保存并部署。
 
 Cloudflare Pages 构建配置：
@@ -87,15 +123,6 @@ npm run build
 npm run preview
 ```
 
-## 站点内容位置
+## 内容表达注意
 
-- 页面：`src/pages`
-- 布局：`src/layouts/BaseLayout.astro`
-- 组件：`src/components`
-- 服务数据：`src/data/services.ts`
-- 合作方式数据：`src/data/home.ts`
-- 案例数据：`src/data/cases.ts`
-- 199元报告数据：`src/data/auditReport.ts`
-- 资料数据：`src/data/resources.ts`
-- 博客文章：`src/content/blog`
-- SEO 文件：`public/robots.txt`、`public/sitemap.xml`
+医疗健康相关内容要保持合规、克制、真实。避免使用夸大或敏感表达，优先使用“增强信任感”“优化咨询路径”“提升表达清晰度”“阶段目标”“提高转化机会”等表达。

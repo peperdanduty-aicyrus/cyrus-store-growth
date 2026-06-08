@@ -2,28 +2,33 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import CaseCard from '@components/CaseCard.astro';
 import PrimaryButton from '@components/PrimaryButton.astro';
-import SectionHeading from '@components/SectionHeading.astro';
+import CTASection from '@components/CTASection.astro';
 import { cases } from '@data/cases';
 
 const categories = ['全部', ...Array.from(new Set(cases.map((item) => item.category)))];
 ---
 
-<BaseLayout title="案例复盘" description="本地门店线上运营案例，展示9.9元体检、199元报告、口腔、SPA和中医馆的真实交付截图。">
+<BaseLayout
+  title="案例复盘"
+  description="案例不是成果包装，而是展示本地门店线上获客问题如何被拆解。"
+>
   <section class="bg-ink section-pad text-white">
     <div class="container-narrow grid items-end gap-8 lg:grid-cols-[1fr_0.72fr]">
       <div>
-        <p class="text-sm font-semibold text-emerald-200">案例复盘 / 方案预览</p>
-        <h1 class="mt-4 max-w-4xl text-4xl font-bold tracking-normal sm:text-5xl">让客户先看到真实交付，再决定是否合作</h1>
+        <p class="text-sm font-semibold text-emerald-200">案例复盘 / 问题拆解过程</p>
+        <h1 class="mt-4 max-w-4xl text-4xl font-bold tracking-normal sm:text-5xl">
+          案例不是成果包装，而是问题拆解过程
+        </h1>
         <p class="mt-6 max-w-3xl text-base leading-8 text-slate-300">
-          这里展示9.9元基础体检、199元详细诊断报告，以及口腔、SPA、中医馆合作过程中的报告页、团单、评分、SOP和阶段数据截图。
+          以下案例均为匿名化或脱敏展示，只呈现行业问题、诊断思路和优化动作，不公开客户隐私和完整经营数据。对于未形成稳定数据的项目，只展示阶段目标和执行路径，不做夸大承诺。
         </p>
       </div>
       <div class="rounded-xl border border-white/10 bg-white/10 p-5">
         <p class="text-sm font-semibold text-white">案例页观看路径</p>
         <div class="mt-4 grid gap-3">
-          <div class="rounded-md bg-white px-4 py-3 text-sm font-semibold text-ink">1. 先看合作初期：门店原始问题</div>
-          <div class="rounded-md bg-white px-4 py-3 text-sm font-semibold text-ink">2. 再看执行路径：报告、团单、SOP</div>
-          <div class="rounded-md bg-white px-4 py-3 text-sm font-semibold text-ink">3. 最后看成果转化：数据、评分、成交</div>
+          <div class="rounded-md bg-white px-4 py-3 text-sm font-semibold text-ink">1. 核心问题：先判断卡点</div>
+          <div class="rounded-md bg-white px-4 py-3 text-sm font-semibold text-ink">2. 诊断框架：再拆路径</div>
+          <div class="rounded-md bg-white px-4 py-3 text-sm font-semibold text-ink">3. 优化动作：最后看交付</div>
         </div>
       </div>
     </div>
@@ -31,10 +36,13 @@ const categories = ['全部', ...Array.from(new Set(cases.map((item) => item.cat
 
   <section class="section-pad">
     <div class="container-narrow">
-      <SectionHeading
-        title="案例截图与报告预览"
-        description="每个案例按“合作初期、执行路径、成果转化”展开。报告已转为站内页面预览，点击图片可放大查看。"
-      />
+      <div class="mx-auto mb-8 max-w-3xl text-center sm:mb-10">
+        <p class="eyebrow mb-3">案例截图与报告预览</p>
+        <h2 class="text-3xl font-bold tracking-normal text-ink sm:text-4xl">看诊断思路，也看实际交付材料</h2>
+        <p class="mt-4 text-base leading-7 text-slate-600">
+          每个案例按“合作初期、执行路径、成果转化”展开。报告已转为站内页面预览，点击图片可放大查看。
+        </p>
+      </div>
 
       <div class="sticky top-16 z-20 mb-6 overflow-x-auto border-y border-line bg-white/95 py-3 backdrop-blur">
         <div class="flex min-w-max gap-2">
@@ -62,11 +70,13 @@ const categories = ['全部', ...Array.from(new Set(cases.map((item) => item.cat
           可以发送门店名称、城市、平台链接和当前诉求，先做初步诊断。
         </p>
         <div class="mt-6">
-          <PrimaryButton href="/contact">联系合作</PrimaryButton>
+          <PrimaryButton href="/contact">预约一次门店诊断</PrimaryButton>
         </div>
       </div>
     </div>
   </section>
+
+  <CTASection />
 
   <div id="case-lightbox" class="fixed inset-0 z-50 hidden bg-ink/90 p-4" aria-hidden="true">
     <div class="mx-auto flex h-full max-w-5xl flex-col">

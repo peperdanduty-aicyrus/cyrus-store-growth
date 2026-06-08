@@ -1,0 +1,28 @@
+---
+import type { Resource } from '@data/resources';
+import PrimaryButton from './PrimaryButton.astro';
+
+interface Props {
+  items: Resource[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+  {
+    items.map((resource) => (
+      <article class="flex h-full flex-col rounded-lg border border-line bg-white p-5 shadow-sm">
+        <h3 class="text-xl font-bold text-ink">{resource.title}</h3>
+        <div class="mt-4 space-y-4 text-sm leading-7 text-slate-600">
+          <p><span class="font-semibold text-ink">适合行业：</span>{resource.audience}</p>
+          <p><span class="font-semibold text-ink">解决问题：</span>{resource.problem}</p>
+          <p><span class="font-semibold text-ink">目录预览：</span>{resource.preview.join(' / ')}</p>
+        </div>
+        <div class="mt-6">
+          <PrimaryButton href="/contact" variant="secondary">添加微信领取</PrimaryButton>
+        </div>
+      </article>
+    ))
+  }
+</div>

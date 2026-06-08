@@ -1,18 +1,22 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import FAQSection from '@components/FAQSection.astro';
 import { site } from '@data/site';
-import { miniAuditDetails, monthlyOpsDetails, reportDetails } from '@data/home';
-
-const flow = ['发送门店信息', '初步了解门店线上基础', '确认体检或诊断报告服务', '确认月度服务内容', '开始执行并定期复盘'];
+import { contactFaqs, contactFlow, messageTemplate } from '@data/consulting';
 ---
 
-<BaseLayout title="联系合作" description="添加微信或发送邮件，沟通本地门店线上运营诊断与合作。">
+<BaseLayout
+  title="预约一次门店线上诊断"
+  description="添加微信发送门店信息，从页面、团单、评价、搜索、内容和转化路径几个角度判断门店线上获客问题。"
+  ogTitle="预约一次门店线上诊断｜Cyrus吕"
+  ogDescription="发送门店名称、所在城市、行业类型和平台链接，预约一次门店线上诊断。"
+>
   <section class="bg-cloud section-pad">
     <div class="container-narrow max-w-4xl">
       <p class="eyebrow">联系合作</p>
-      <h1 class="mt-4 text-4xl font-bold tracking-normal text-ink sm:text-5xl">把门店信息发来，先做初步判断</h1>
+      <h1 class="mt-4 text-4xl font-bold tracking-normal text-ink sm:text-5xl">预约一次门店线上诊断</h1>
       <p class="mt-6 text-lg leading-8 text-slate-600">
-        我在沈阳，可远程服务全国门店。你可以先提供门店名称、城市商圈、行业、平台链接和当前最想解决的问题。
+        发送门店信息后，我会从页面、团单、评价、搜索、内容和转化路径几个角度，判断你的线上获客链路中最优先需要修改的地方。
       </p>
     </div>
   </section>
@@ -20,71 +24,49 @@ const flow = ['发送门店信息', '初步了解门店线上基础', '确认体
   <section class="section-pad">
     <div class="container-narrow grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
       <aside class="space-y-5">
-        <div class="card">
-          <h2 class="text-xl font-bold text-ink">微信</h2>
+        <div class="rounded-lg border border-line bg-white p-5 shadow-sm">
+          <h2 class="text-xl font-bold text-ink">微信咨询</h2>
           <img
             src={site.wechatQr}
             alt={`${site.wechat} 微信二维码`}
-            class="mt-4 aspect-square max-w-64 rounded-lg border border-line bg-white object-cover shadow-sm"
+            class="mt-5 aspect-square w-full max-w-72 rounded-lg border border-line bg-white object-cover shadow-sm"
             loading="lazy"
           />
           <p class="mt-4 text-sm font-semibold text-ink">{site.wechat}</p>
           <p class="mt-2 text-sm text-slate-500">{site.wechatNote}</p>
         </div>
-        <div class="card">
+        <div class="rounded-lg border border-line bg-white p-5 shadow-sm">
           <h2 class="text-xl font-bold text-ink">邮箱</h2>
           <p class="mt-3 text-sm text-slate-600">{site.email}</p>
+          <p class="mt-2 text-sm leading-6 text-slate-500">也可以把门店链接和当前问题发送到邮箱，适合资料较多的情况。</p>
         </div>
       </aside>
 
       <div class="space-y-6">
-        <article class="card">
-          <h2 class="text-xl font-bold text-ink">9.9元门店基础体检</h2>
-          <p class="mt-3 text-sm leading-7 text-slate-600">
-            适合想先了解线上页面基础问题的店主。发送门店名称、城市商圈、平台链接和当前问题，24小时内反馈基础问题。
-          </p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            {
-              miniAuditDetails.items.map((item) => (
-                <span class="rounded-full bg-cloud px-3 py-1 text-xs font-semibold text-pine">{item}</span>
-              ))
-            }
+        <article class="rounded-lg border border-line bg-white p-5 shadow-sm sm:p-6">
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p class="eyebrow">复制发送模板</p>
+              <h2 class="mt-2 text-2xl font-bold text-ink">把信息一次发完整，判断会更准</h2>
+            </div>
+            <button
+              type="button"
+              data-copy-template
+              class="inline-flex min-h-11 items-center justify-center rounded-md border border-pine px-4 py-2 text-sm font-semibold text-pine hover:bg-pine hover:text-white"
+            >
+              复制模板
+            </button>
           </div>
+          <pre class="mt-5 whitespace-pre-wrap rounded-md bg-cloud p-4 text-sm leading-7 text-slate-700">{messageTemplate}</pre>
+          <p data-copy-status class="mt-3 hidden text-sm font-semibold text-pine">已复制，可以直接发微信。</p>
         </article>
 
-        <article class="card">
-          <h2 class="text-xl font-bold text-ink">199元详细诊断报告</h2>
-          <p class="mt-3 text-sm leading-7 text-slate-600">
-            发送门店名称、城市商圈和平台链接后，先做初步判断。确认需要详细报告后，24小时内以PDF或Word形式交付。
-          </p>
-          <div class="mt-4 flex flex-wrap gap-2">
+        <article class="rounded-lg border border-line bg-white p-5 shadow-sm sm:p-6">
+          <p class="eyebrow">合作流程</p>
+          <h2 class="mt-2 text-2xl font-bold text-ink">从发门店信息到按周复盘</h2>
+          <ol class="mt-6 grid gap-3 sm:grid-cols-2">
             {
-              reportDetails.items.map((item) => (
-                <span class="rounded-full bg-cloud px-3 py-1 text-xs font-semibold text-pine">{item}</span>
-              ))
-            }
-          </div>
-        </article>
-
-        <article class="card">
-          <h2 class="text-xl font-bold text-ink">月度代运营</h2>
-          <p class="mt-3 text-sm leading-7 text-slate-600">
-            适合需要持续优化的门店。每周更新6-8次，每月复盘2次；包含美团页面、团单、活动、评价关键词、小红书选题、朋友圈文案和线上接待流程标准化搭建。根据门店基础确认服务内容和报价。
-          </p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            {
-              monthlyOpsDetails.included.map((item) => (
-                <span class="rounded-full bg-cloud px-3 py-1 text-xs font-semibold text-pine">{item}</span>
-              ))
-            }
-          </div>
-        </article>
-
-        <article class="card">
-          <h2 class="text-xl font-bold text-ink">合作流程</h2>
-          <ol class="mt-5 grid gap-3">
-            {
-              flow.map((item, index) => (
+              contactFlow.map((item, index) => (
                 <li class="flex gap-3 rounded-md bg-cloud p-4 text-sm leading-6 text-slate-700">
                   <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-pine text-xs font-bold text-white">
                     {index + 1}
@@ -96,9 +78,10 @@ const flow = ['发送门店信息', '初步了解门店线上基础', '确认体
           </ol>
         </article>
 
-        <form class="card" aria-label="合作咨询表单">
-          <h2 class="text-xl font-bold text-ink">合作咨询表单</h2>
-          <p class="mt-2 text-sm leading-6 text-slate-500">静态展示表单，暂不接后端。请添加微信或发送邮件沟通。</p>
+        <form class="rounded-lg border border-line bg-white p-5 shadow-sm sm:p-6" aria-label="合作咨询表单">
+          <p class="eyebrow">静态表单</p>
+          <h2 class="mt-2 text-2xl font-bold text-ink">也可以先整理这些信息</h2>
+          <p class="mt-3 text-sm leading-6 text-slate-500">表单暂不接后端，提交前请添加微信或发送邮件沟通。</p>
           <div class="mt-5 grid gap-4 sm:grid-cols-2">
             <label class="text-sm font-medium text-ink">
               门店名称
@@ -113,12 +96,12 @@ const flow = ['发送门店信息', '初步了解门店线上基础', '确认体
               <input class="mt-2 w-full rounded-md border border-line px-3 py-3 text-sm outline-none focus:border-pine" placeholder="例如：沈阳某商圈" />
             </label>
             <label class="text-sm font-medium text-ink">
-              联系方式
-              <input class="mt-2 w-full rounded-md border border-line px-3 py-3 text-sm outline-none focus:border-pine" placeholder="微信或邮箱" />
+              平台链接
+              <input class="mt-2 w-full rounded-md border border-line px-3 py-3 text-sm outline-none focus:border-pine" placeholder="美团/大众点评/小红书链接" />
             </label>
             <label class="text-sm font-medium text-ink sm:col-span-2">
-              当前问题
-              <textarea class="mt-2 min-h-32 w-full rounded-md border border-line px-3 py-3 text-sm outline-none focus:border-pine" placeholder="例如：美团团单卖不动，小红书没有咨询，想先做9.9元门店基础体检、199元详细诊断报告或月度代运营"></textarea>
+              当前最想解决的问题
+              <textarea class="mt-2 min-h-32 w-full rounded-md border border-line px-3 py-3 text-sm outline-none focus:border-pine" placeholder="例如：曝光少、咨询少、团单卖不动、评价关键词不清楚、内容不会发"></textarea>
             </label>
           </div>
           <button
@@ -131,4 +114,26 @@ const flow = ['发送门店信息', '初步了解门店线上基础', '确认体
       </div>
     </div>
   </section>
+
+  <FAQSection
+    eyebrow="常见问题"
+    title="店主预约诊断前常问的问题"
+    description="如果你不确定该选基础体检、199元报告还是月度陪跑，可以先发门店链接，我会先判断问题阶段。"
+    items={contactFaqs}
+  />
+
+  <script>
+    const copyButton = document.querySelector('[data-copy-template]');
+    const status = document.querySelector('[data-copy-status]');
+    copyButton?.addEventListener('click', async () => {
+      const template = copyButton.closest('article')?.querySelector('pre')?.textContent ?? '';
+      try {
+        await navigator.clipboard.writeText(template);
+        status?.classList.remove('hidden');
+      } catch {
+        status?.classList.remove('hidden');
+        if (status) status.textContent = '复制失败，请手动选中文本复制。';
+      }
+    });
+  </script>
 </BaseLayout>

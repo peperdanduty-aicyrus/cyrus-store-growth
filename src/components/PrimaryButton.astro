@@ -1,14 +1,16 @@
 ---
 interface Props {
   href: string;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'secondaryDark';
 }
 
 const { href, variant = 'primary' } = Astro.props;
 const classes =
   variant === 'primary'
     ? 'bg-pine text-white hover:bg-ink'
-    : 'border border-pine bg-white text-pine hover:bg-cloud';
+    : variant === 'secondaryDark'
+      ? 'border border-white/30 bg-transparent text-white hover:bg-white hover:text-ink'
+      : 'border border-pine bg-white text-pine hover:bg-cloud';
 ---
 
 <a

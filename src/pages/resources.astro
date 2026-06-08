@@ -1,27 +1,48 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import ResourceCard from '@components/ResourceCard.astro';
-import SectionHeading from '@components/SectionHeading.astro';
+import ResourceCards from '@components/ResourceCards.astro';
+import CTASection from '@components/CTASection.astro';
 import { resources } from '@data/resources';
 ---
 
-<BaseLayout title="免费资料" description="中医馆、美团团单、小红书选题和朋友圈活动文案模板领取页面。">
+<BaseLayout
+  title="给门店老板的线上获客工具包"
+  description="围绕美团点评、小红书、朋友圈和医疗健康内容合规表达，整理给本地门店店主使用的线上获客检查表与模板。"
+  ogTitle="给门店老板的线上获客工具包｜Cyrus吕"
+  ogDescription="领取中医馆、推拿馆、医疗健康门店、小红书和朋友圈相关的线上获客工具资料。"
+>
   <section class="bg-cloud section-pad">
     <div class="container-narrow max-w-4xl">
-      <p class="eyebrow">免费资料</p>
-      <h1 class="mt-4 text-4xl font-bold tracking-normal text-ink sm:text-5xl">先用检查表做一次门店自查</h1>
+      <p class="eyebrow">工具包</p>
+      <h1 class="mt-4 text-4xl font-bold tracking-normal text-ink sm:text-5xl">给门店店主的线上获客工具包</h1>
       <p class="mt-6 text-lg leading-8 text-slate-600">
-        资料适合店主自己先看基础问题。领取按钮暂时跳转联系页，添加微信后领取。
+        这些资料不是通用话术模板，而是围绕美团点评页面、小红书选题、朋友圈活动和医疗健康类内容表达整理的自查工具。适合店主先判断自己的页面、内容和转化路径有没有明显断点。
       </p>
     </div>
   </section>
 
   <section class="section-pad">
     <div class="container-narrow">
-      <SectionHeading title="可领取资料" description="围绕美团、小红书和私域活动的基础模板。" />
-      <div class="grid gap-5 md:grid-cols-2">
-        {resources.map((resource) => <ResourceCard resource={resource} />)}
+      <div class="mb-8 grid gap-5 lg:grid-cols-[0.8fr_1.2fr]">
+        <div>
+          <p class="eyebrow">资料目录</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-normal text-ink">先自查，再决定是否需要诊断</h2>
+        </div>
+        <p class="text-base leading-8 text-slate-600">
+          每份资料都包含适用行业、能解决的问题和目录预览。领取方式统一为添加微信，备注资料名称；如果你已经有美团点评链接，也可以一并发来，方便判断是否更适合做基础体检或深度诊断报告。
+        </p>
       </div>
+      <ResourceCards items={resources} />
     </div>
   </section>
+
+  <CTASection
+    eyebrow="下一步"
+    title="想知道哪份资料更适合你的门店？"
+    description="发送门店行业、城市商圈和平台链接，我会先帮你判断应该从页面、团单、评价、搜索还是内容开始看。"
+    primaryHref="/contact"
+    primaryLabel="预约一次门店诊断"
+    secondaryHref="/audit-report"
+    secondaryLabel="查看199元报告内容"
+  />
 </BaseLayout>
