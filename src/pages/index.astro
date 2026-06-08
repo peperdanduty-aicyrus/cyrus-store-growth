@@ -171,16 +171,25 @@ const featuredResources = resources.slice(0, 2);
 
   <section class="section-pad">
     <div class="container-narrow">
-      <SectionHeading
-        eyebrow="案例参考"
-        title="用真实经营问题的写法呈现案例"
-        description="案例均做匿名处理，不展示真实店名，重点呈现诊断思路、优化动作和阶段目标。"
-      />
-      <div class="grid gap-5 md:grid-cols-2">
-        {featuredCases.map((item) => <CaseCard item={item} />)}
-      </div>
-      <div class="mt-8 text-center">
-        <PrimaryButton href="/cases" variant="secondary">查看全部案例</PrimaryButton>
+      <div class="grid gap-8 lg:grid-cols-[0.36fr_0.64fr]">
+        <div class="rounded-xl bg-ink p-6 text-white lg:sticky lg:top-24 lg:self-start">
+          <p class="text-sm font-semibold text-emerald-200">案例参考</p>
+          <h2 class="mt-3 text-3xl font-bold leading-tight">先看真实交付，再判断是否适合合作</h2>
+          <p class="mt-4 text-sm leading-7 text-slate-300">
+            案例页会展示9.9元基础体检、199元详细诊断报告，以及口腔、SPA、中医馆的报告页、团单、SOP、评分和阶段数据。
+          </p>
+          <div class="mt-6 grid gap-3">
+            <div class="rounded-md bg-white/10 px-4 py-3 text-sm font-semibold">报告站内预览，点击截图查看细节</div>
+            <div class="rounded-md bg-white/10 px-4 py-3 text-sm font-semibold">按合作初期、执行路径、成果转化查看</div>
+            <div class="rounded-md bg-white/10 px-4 py-3 text-sm font-semibold">点击截图可放大看细节</div>
+          </div>
+          <div class="mt-6">
+            <PrimaryButton href="/cases">查看案例预览</PrimaryButton>
+          </div>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2">
+          {featuredCases.map((item) => <CaseCard item={item} />)}
+        </div>
       </div>
     </div>
   </section>
