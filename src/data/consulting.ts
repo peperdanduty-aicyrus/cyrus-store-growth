@@ -72,7 +72,7 @@ export const diagnosticModel = [
 export const serviceMatrix = [
   {
     label: '基础入口',
-    title: '9.9元基础体检',
+    title: '4.9元基础体检',
     position: '低门槛发现明显漏客点',
     fit: '想先看看店铺有没有问题的店主',
     deliverable: '3-5个优先修改建议，指出页面、团单、评价或搜索中的明显问题',
@@ -81,7 +81,7 @@ export const serviceMatrix = [
   },
   {
     label: '核心产品',
-    title: '199元深度诊断报告',
+    title: '69元深度诊断报告',
     position: '适合认真准备优化线上店铺的门店',
     fit: '美团点评已经上线，但曝光、点击、咨询、团单转化不理想的门店',
     deliverable: '页面拆解、团单建议、竞品对比、搜索词建议、内容优化方向',
@@ -189,8 +189,8 @@ export const serviceSystems = [
 
 export const contactFaqs = [
   {
-    question: '9.9元和199元有什么区别？',
-    answer: '9.9元适合快速看基础问题，199元会系统拆解页面、团单、评价、竞品、搜索词和优先整改顺序。'
+    question: '4.9元和69元有什么区别？',
+    answer: '4.9元适合快速看基础问题，69元会系统拆解页面、团单、评价、竞品、搜索词和优先整改顺序。'
   },
   {
     question: '没开通美团点评可以做吗？',
@@ -214,7 +214,7 @@ export const contactFaqs = [
   },
   {
     question: '是否支持只做方案不代运营？',
-    answer: '支持。可以只做9.9元基础体检、199元深度诊断报告或行业专项方案。'
+    answer: '支持。可以只做4.9元基础体检、69元深度诊断报告或行业专项方案。'
   }
 ];
 
@@ -229,7 +229,7 @@ export const messageTemplate = `老板你好，我想做一次门店线上诊断
 export const contactFlow = [
   '发送门店信息',
   '初步判断问题类型',
-  '选择9.9元基础体检 / 199元深度报告 / 月度陪跑',
+  '选择4.9元基础体检 / 69元深度报告 / 月度陪跑',
   '输出问题清单或诊断报告',
   '确认执行优先级',
   '按周推进优化并复盘'

@@ -15,7 +15,7 @@
 - `/resources`：资料页，展示线上获客工具包
 - `/about`：关于页，展示工作方式和服务原则
 - `/contact`：联系合作页，展示微信二维码、发送模板、合作流程和 FAQ
-- `/audit-report`：199元深度诊断报告说明页
+- `/audit-report`：69元深度诊断报告说明页
 
 ## 本地如何运行
 
@@ -86,7 +86,7 @@ summary: "文章卡片摘要"
 
 - `src/data/site.ts`：品牌、导航、邮箱、微信二维码、站点描述
 - `src/data/consulting.ts`：首页洞察、5D 诊断模型、服务矩阵、行业场景、FAQ、联系页模板
-- `src/data/auditReport.ts`：199元深度诊断报告页面内容
+- `src/data/auditReport.ts`：69元深度诊断报告页面内容
 - `src/data/resources.ts`：资料页工具包
 - `src/data/cases.ts`：案例页
 

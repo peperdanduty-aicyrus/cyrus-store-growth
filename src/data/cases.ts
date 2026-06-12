@@ -28,7 +28,7 @@ export type CaseItem = {
   id: string;
   title: string;
   industry: string;
-  category: '9.9基础' | '199报告' | '口腔' | 'SPA' | '中医馆';
+  category: '4.9基础' | '69报告' | '口腔' | 'SPA' | '中医馆';
   storeStage: string;
   coreProblem: string;
   framework: string;
@@ -45,19 +45,19 @@ export type CaseItem = {
 export const cases: CaseItem[] = [
   {
     id: 'mini-audit',
-    title: '9.9元门店基础体检能得到什么',
+    title: '4.9元门店基础体检能得到什么',
     industry: '基础体检 / 初步判断',
-    category: '9.9基础',
+    category: '4.9基础',
     storeStage: '诊断入口',
     coreProblem: '店主想先知道线上页面有没有明显漏客点，但暂时不需要完整方案。',
     framework: '用D2页面诊断和D5转化诊断先看主图、团单、评价和咨询入口。',
-    actions: '用一页式反馈指出3-5个基础问题，并判断是否需要进入199元深度诊断。',
+    actions: '用一页式反馈指出3-5个基础问题，并判断是否需要进入69元深度诊断。',
     goal: '帮助店主用较低决策成本看清第一批优先问题。',
     reusable: '适合把陌生咨询转化为第一次信任建立。',
     highlight: '用一次轻量体检，先看页面最明显的漏客点。',
     summary:
-      '9.9元适合店主先做一次轻量判断，重点看线上页面最基础、最明显的问题，不需要一开始就做完整代运营。',
-    deliverables: ['一页式诊断结论', '基础问题截图说明', '是否需要继续做199元报告的建议'],
+      '4.9元适合店主先做一次轻量判断，重点看线上页面最基础、最明显的问题，不需要一开始就做完整代运营。',
+    deliverables: ['一页式诊断结论', '基础问题截图说明', '是否需要继续做69元报告的建议'],
     suitableFor: '适合还在观望、第一次接触线上运营诊断、想先判断页面基础问题的门店。',
     stages: [
       {
@@ -67,7 +67,7 @@ export const cases: CaseItem[] = [
         insight: '核心不是给一堆泛泛建议，而是帮店主判断：这个页面有没有必要继续做完整诊断。',
         media: [
           {
-            title: '9.9元基础体检报告预览',
+            title: '4.9元基础体检报告预览',
             type: 'report',
             pages: reportPages('mini-audit', 1),
             cover: '/case-assets/9-audit/mini-audit-cover.webp',
@@ -79,7 +79,7 @@ export const cases: CaseItem[] = [
         label: '执行路径',
         title: '围绕主图、团单、评价做基础判断',
         description: '从顾客第一眼能不能看懂、套餐是否清楚、评价关键词是否支撑信任三个角度快速判断。',
-        insight: '9.9元不是完整方案，它的价值是降低第一次沟通成本，让店主先看到问题在哪里。',
+        insight: '4.9元不是完整方案，它的价值是降低第一次沟通成本，让店主先看到问题在哪里。',
         media: [
           {
             title: '基础体检报告页',
@@ -92,12 +92,12 @@ export const cases: CaseItem[] = [
       },
       {
         label: '成果转化',
-        title: '判断是否升级到199元完整报告',
-        description: '如果基础问题明显，再进入199元详细诊断报告，把主图、页面、团单、评价、竞品和搜索词系统拆清楚。',
+        title: '判断是否升级到69元完整报告',
+        description: '如果基础问题明显，再进入69元详细诊断报告，把主图、页面、团单、评价、竞品和搜索词系统拆清楚。',
         insight: '这一步负责建立第一次信任，不强推月度代运营。',
         media: [
           {
-            title: '9.9元体检交付样式',
+            title: '4.9元体检交付样式',
             type: 'report',
             pages: reportPages('mini-audit', 1),
             cover: '/case-assets/9-audit/mini-audit-cover.webp',
@@ -109,9 +109,9 @@ export const cases: CaseItem[] = [
   },
   {
     id: 'report-199',
-    title: '199元深度诊断报告能得到什么',
-    industry: '199元报告 / 交付样例',
-    category: '199报告',
+    title: '69元深度诊断报告能得到什么',
+    industry: '69元报告 / 交付样例',
+    category: '69报告',
     storeStage: '准备系统优化',
     coreProblem: '店主知道线上有问题，但分不清是主图、团单、评价、竞品、搜索词还是承接流程的问题。',
     framework: '用Local Growth 5D模型完整拆解定位、页面、搜索、内容和转化。',
@@ -120,7 +120,7 @@ export const cases: CaseItem[] = [
     reusable: '适合所有准备认真优化线上店铺，但暂时不确定是否代运营的门店。',
     highlight: '把主图、团单、评价、竞品和搜索词拆成整改顺序。',
     summary:
-      '199元报告会把门店线上获客链路拆成可执行的整改顺序，适合店主先拿到一份能看懂、能执行的完整诊断材料。',
+      '69元报告会把门店线上获客链路拆成可执行的整改顺序，适合店主先拿到一份能看懂、能执行的完整诊断材料。',
     deliverables: ['完整报告预览', '竞品与项目结构分析', '团单和页面整改顺序', '下一步执行建议'],
     suitableFor: '适合中医馆、推拿馆、口腔门诊等想先看清线上问题，再决定是否做月度代运营的门店。',
     stages: [
@@ -158,7 +158,7 @@ export const cases: CaseItem[] = [
         label: '成果转化',
         title: '让店主拿到可执行的下一步',
         description: '报告最后不是停在问题描述，而是给出先改主图、再改团单、再补评价关键词和承接话术的顺序。',
-        insight: '199元报告的转化点，是让店主看到“接下来该怎么做”。',
+        insight: '69元报告的转化点，是让店主看到“接下来该怎么做”。',
         media: [
           {
             title: '完整诊断报告结构',
@@ -391,7 +391,7 @@ export const cases: CaseItem[] = [
     reusable: '适合中医馆、针灸推拿馆、艾灸理疗馆等专业解释成本高的门店。',
     highlight: '从诊断方案到客户沟通，再到后续销售承接。',
     summary:
-      '这个案例展示中医馆从美团点评诊断方案，到后续成交和销售截图的过程，适合看199元报告如何承接后续合作。',
+      '这个案例展示中医馆从美团点评诊断方案，到后续成交和销售截图的过程，适合看69元报告如何承接后续合作。',
     deliverables: ['美团点评诊断方案', '成交沟通截图', '销售过程截图'],
     suitableFor: '适合中医馆、针灸推拿馆、艾灸理疗馆等项目多、需要先看清线上产品结构的门店。',
     stages: [
